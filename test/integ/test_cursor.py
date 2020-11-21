@@ -1043,6 +1043,7 @@ def test_fetchmany_size_error(conn_cnx):
 
 def test_nextset(conn_cnx, caplog):
     """Tests no op function nextset."""
+    caplog.set_level(logging.DEBUG, 'snowflake.connector')
     with conn_cnx() as con:
         with con.cursor() as cur:
             assert cur.nextset() is None
